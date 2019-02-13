@@ -1,12 +1,15 @@
-CFLAGS=-g -O2 -I
+CFLAGS=-g -O2
 LDFLAGS=-ldlt
 
 all: dlt_diff
 
-dlt_diff: diff.c
-	gcc ${CFLAGS} ${LDFLAGS} -o $@ $^
+diff.o: diff.c
+	gcc ${CFLAGS} -c -o $@ $^
+
+dlt_diff: diff.o
+	gcc ${CFLAGS} -o $@ $^ ${LDFLAGS}
 
 clean:
-	rm -f dlt_diff
+	rm -f dlt_diff *~ *.o
 
 .PHONY: all clean
