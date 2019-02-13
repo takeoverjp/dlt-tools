@@ -1,2 +1,2 @@
-# dlt_diff
+# dlt-diff
 Show diff of two dlt files.
