@@ -11,6 +11,21 @@
 static u_char is_verbose = 0;
 
 static void
+remove_lf (char *const str)
+{
+  assert (str);
+
+  char *pos = str;
+  char *ret = NULL;
+
+  while (ret = strchr (pos, '\n'))
+    {
+      *ret = ' ';
+      pos = ret;
+    }
+}
+
+static void
 dlt2txt (const char * const path)
 {
   DltFile file;
@@ -37,7 +52,8 @@ dlt2txt (const char * const path)
       printf ("%s ", buf);
       dlt_message_payload (&file.msg, buf, sizeof(buf),
                           DLT_OUTPUT_ASCII, is_verbose);
-      printf("[%s]\n", buf);
+      remove_lf (buf);
+      printf("%s\n", buf);
     }
 
   dlt_file_free (&file, is_verbose);
