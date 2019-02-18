@@ -7,3 +7,6 @@ target_link_libraries(dlt-diff dlt)
 install(TARGETS dlt-diff
   RUNTIME
   DESTINATION bin)
+
+enable_testing()
+add_subdirectory(tests)

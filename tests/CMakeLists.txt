@@ -1,0 +1,3 @@
+add_test(
+  NAME dlt2txt_test
+  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/dlt2txt_tests.sh ${CMAKE_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
