@@ -47,7 +47,7 @@ dlt2txt (const char * const path)
   for (int i = 0; i < file.counter; i++)
     {
       dlt_file_message (&file, i, is_verbose);
-      printf ("%d ", i);
+      printf ("%06d ", i);
       dlt_message_header (&file.msg, buf, sizeof(buf), is_verbose);
       printf ("%s ", buf);
       dlt_message_payload (&file.msg, buf, sizeof(buf),
